@@ -8,11 +8,6 @@ textarea {
   width: 100%;
 }
 
-mat-form-field,
-text {
-  width: 100%;
-}
-
 mat-spinner {
   margin: auto;
 }

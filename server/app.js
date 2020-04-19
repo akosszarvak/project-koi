@@ -4,11 +4,16 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const postRoutes = require("./routes/posts");
+const userRoutes = require("./routes/user");
 
 const app = express();
 
 mongoose
-  .connect("connection string for a mongoDB Atlas cluster")
+  .connect(
+    "mongodb+srv://admin:" +
+      process.env.MONGO_ATLAS_PW +
+      "@koiproject-d5lh6.mongodb.net/koi?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("connected to database!");
   })
@@ -26,7 +31,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Request-With, Content-Type, Accept"
+    "Origin, X-Request-With, Content-Type, Accept, Authorization"
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -36,4 +41,5 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/posts", postRoutes);
+app.use("/api/user", userRoutes);
 module.exports = app;

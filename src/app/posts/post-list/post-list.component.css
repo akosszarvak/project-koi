@@ -6,14 +6,17 @@ mat-spinner {
   margin: auto;
 }
 
-.info-text {
-  text-align: center;
-  font-style: italic;
-}
-
 mat-accordion {
   width: 100%;
   align-self: center;
+}
+mat-paginator {
+  margin-top: 1rem;
+}
+
+.info-text {
+  text-align: center;
+  font-style: italic;
 }
 
 .post-image {
